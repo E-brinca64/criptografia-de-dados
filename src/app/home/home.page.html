@@ -1,20 +1,36 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Criptografia
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-list>
+    <ion-item>
+      <ion-input [(ngModel)]="nome" label="Nome:" label-placement="floating" placeholder="Digite seu nome"></ion-input>
+    </ion-item>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-item>
+      <ion-input [(ngModel)]="email" label="Email:" type="email" label-placement="floating" placeholder="Digite seu Email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input [(ngModel)]="nota" label="Anotação:" label-placement="floating" placeholder="Digite sua nota privada"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input [(ngModel)]="secretKey" label="Chave Secreta" label-placement="floating" placeholder="Digite a chave secreta"></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" (click)="encryptData()">Criptografar</ion-button>
+  </ion-list>
+
+  <ion-item *ngIf="encryptedData">
+    <ion-label>Dados Criptografados</ion-label>
+    <ion-textarea [(ngModel)]="encryptedData" readonly></ion-textarea>
+  </ion-item>
+
+  <ion-button expand="full" (click)="goToDecryptPage()">Ver Dados</ion-button>
 </ion-content>

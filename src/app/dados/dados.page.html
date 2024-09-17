@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Descriptografar Dados
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-input [(ngModel)]="secretKey" label="Chave Secreta" label-placement="floating" placeholder="Digite a chave secreta"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="decryptData()">Descriptografar</ion-button>
+
+  <ion-item *ngIf="isObject">
+    <ion-label>Nome:</ion-label>
+    <ion-text>{{ decryptedData.nome }}</ion-text>
+  </ion-item>
+  <ion-item *ngIf="isObject">
+    <ion-label>Email:</ion-label>
+    <ion-text>{{ decryptedData.email }}</ion-text>
+  </ion-item>
+  <ion-item *ngIf="isObject">
+    <ion-label>Nota:</ion-label>
+    <ion-text>{{ decryptedData.nota }}</ion-text>
+  </ion-item>
+
+  <ion-item *ngIf="isError">
+    <ion-label>{{ decryptedData }}</ion-label>
+  </ion-item>
+</ion-content>
