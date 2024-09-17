@@ -1,0 +1,7 @@
+{
+  "name": "Ac-Criptografia",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
